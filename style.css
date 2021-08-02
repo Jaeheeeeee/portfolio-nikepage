@@ -148,8 +148,13 @@ button {
 }
 
 .fixed-costomer-service img {
+  transition: transform 500ms;
   width: auto;
   height: 50px;
+}
+
+.fixed-costomer-service img:hover {
+  transform: scale(1.1);
 }
 
 .category {
@@ -188,6 +193,10 @@ p {
 
 
 /* gnb-menu,side */
+.gnb {
+  width: 100%;
+}
+
 .gnb-menu {
   display: flex;
   justify-content: space-between;
@@ -202,19 +211,19 @@ p {
   height: auto;
 }
 
-
 .gnb-menu-main {
   display: none;
 }
 
 .gnb-menu-side {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .gnb-side-search {
   vertical-align: middle;
+  width: 50px;
 }
 
 .gnb-side-search input {
@@ -254,11 +263,6 @@ p {
   padding: 15px;
   transition: color 400ms ease-in;
 } 
-
-
-/* #gnb-side-bar {
-  margin-left: 15px;
-} */
 
 
 
@@ -352,40 +356,51 @@ p {
 
 
 .products .row:first-child .col-12:nth-child(2) .products-img a {
-  background-image: url(/assets/main_shoes1.jpeg);
+  background-image: url(./assets/main_shoes1.jpeg);
 }
 
 .products .row:first-child .col-12:nth-child(3) .products-img a {
-  background-image: url(/assets/main_shoes2.jpeg);
+  background-image: url(./assets/main_shoes2.jpeg);
 }
 
 .products .row:first-child .col-12:last-child .products-img a {
-  background-image: url(/assets/mian_shoes3.jpeg);
+  background-image: url(./assets/mian_shoes3.jpeg);
 }
 
 .products .row:last-child .col-12:first-child .products-img a {
-  background-image: url(/assets/product1.jpeg);
+  background-image: url(./assets/product1.jpeg);
 }
 
 .products .row:last-child .col-12:nth-child(2) .products-img a {
-  background-image: url(/assets/product2.jpeg);
+  background-image: url(./assets/product2.jpeg);
 }
 
 .products .row:last-child .col-12:last-child .products-img a {
-  background-image: url(/assets/product3.jpeg);
+  background-image: url(./assets/product3.jpeg);
 }
 
 
 /* campaign */
-
 .campaign-img {
   width: 100%;
   height: 380px;
-  background-image: url(/assets/nike-cam.jpeg);
+  overflow: hidden;
+}
+
+.campaign-img a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/nike-cam.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40%;
   margin-bottom: 30px;
+  transition: transform 500ms ease-in-out;
+}
+
+.campaign-img a:hover {
+  transform: scale(1.03);
 }
 
 .campaign-title {
@@ -431,24 +446,24 @@ p {
 }
 
 .lookbook .col-12:nth-child(2) .lookbook-img a {
-  background-image: url(/assets/lookbook4.png);
+  background-image: url(./assets/lookbook4.png);
 }
 
 .lookbook .col-12:nth-child(3) .lookbook-img a {
-  background-image: url(/assets/lookbook3.png);
+  background-image: url(./assets/lookbook3.png);
 }
   
 .lookbook .col-12:nth-child(4) .lookbook-img a {
-  background-image: url(/assets/lookbook.png);
+  background-image: url(./assets/lookbook.png);
 }
 
 .lookbook .col-12:nth-child(5) .lookbook-img a {
-  background-image: url(/assets/lookbook2.png);
+  background-image: url(./assets/lookbook2.png);
 }
 
 .lookbook-title {
   font-size: var(--fs-m);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-medium);
   text-align: center;
 }
 
@@ -478,6 +493,11 @@ p {
   margin: 0 3px;
 }
 
+.footer-info address a {
+  color: var(--color-side);
+  text-decoration: underline;
+}
+
 .footer-link-sns a {
   display: inline-block;
   font-size: var(--fs-m);
@@ -485,10 +505,20 @@ p {
   margin: 0 2px;
 }
 
+.footer-link-sns a:hover {
+  color: var(--color-white);
+}
+
 .footer-link p a {
   color:var(--color-side);
   text-decoration: underline;
 }
+
+.footer-link p a:hover,
+.footer-info address a:hover {
+  color: var(--color-white);
+}
+
 
 .footer-link p  {
   text-align: left;
@@ -716,13 +746,19 @@ p {
     display: flex;
     justify-content: flex-end;
   }
+
   .nav-top-menu a {
     display: inline-block;
     padding: 15px 13px 5px 13px;
     font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-regular);
     color: var(--color-dark);
   }
+
+  .nav-top-menu a:hover {
+    color: var(--color-point)
+  }
+
   .nav-top-menu li::after {
     content: '|';
     font-size: var(--fs-xs);
@@ -751,10 +787,29 @@ p {
     display: flex;
   }
 
+  .gnb-menu-main {
+    position: relative;
+  }
+
   .gnb-menu-main a {
     font-size: var(--fs-s);
     text-transform: uppercase;
     padding: 20px 10px;
+  }
+
+  .gnb-menu-main li::after {
+    content: 'MEN WOMEN KIDS SALE';
+    display: none;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    background-color: var(--color-white);
+    padding: 10px 50px; 
+  }
+
+  .gnb-menu-main li:hover::after {
+    display: flex;
+    text-align: center;
   }
 
   .gnb-menu-side a:last-child {
